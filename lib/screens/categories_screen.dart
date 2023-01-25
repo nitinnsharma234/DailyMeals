@@ -1,4 +1,4 @@
-import 'package:delimeals/categoryItem.dart';
+import 'package:delimeals/widgets/categoryItem.dart';
 import 'package:delimeals/dummy_data.dart';
 import 'package:flutter/material.dart';
 
