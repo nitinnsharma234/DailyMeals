@@ -17,26 +17,42 @@ class MyApp extends StatelessWidget {
       title: ' DailyMeals',
       theme: ThemeData(
         canvasColor: const Color.fromRGBO(255, 220, 210, 1),
-        colorScheme:
-            ThemeData.light().colorScheme.copyWith(secondary: Colors.amber,primary: Colors.redAccent,),
+        colorScheme: ThemeData.light().colorScheme.copyWith(
+              secondary: Colors.amber,
+              primary: Colors.redAccent,
+            ),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
-              bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-              bodySmall: const TextStyle(
-                color: Color.fromRGBO(20, 51, 51, 1),
-              ),
-            titleSmall: const TextStyle(
-              fontFamily: 'RobotoCondensed',
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-            )
-
+            bodyMedium: const TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+            bodySmall: const TextStyle(
+              color: Color.fromRGBO(20, 51, 51, 1),
             ),
+            titleSmall: const TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
       ),
       home: const MyHomePage(title: 'DailyMeals'),
-      routes: {'/category-meals': (context) => CategoryMealsScreen(),
-      MealDetailScreen.routeName:(context) => MealDetailScreen()},
-
+      routes: {
+        '/category-meals': (context) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (context) => MealDetailScreen(),
+      },
+      //onGenerateRoute: (settings){
+       // print(settings.arguments);
+       /* if (settings.name=='/meal-detail')
+          {
+            return  MaterialPageRoute(builder: (ctx)=>CategoriesScreen());
+          }
+        else if (settings.name ='/meal-ingredients')
+          {
+            return MaterialPageRoute(builder:(ctx)=>MealIngredients() );
+          }
+        return MaterialPageRoute(builder: (ctx)=>ReturnDefaultPage());*/
+    //  },
+     /* onUnknownRoute: (settings){
+        *//* what happens if route is not in routes list and after onGenerateRoute not found ,
+        onUnknownRoute and it's like pageNotFound error*//*
+      }*/
     );
   }
 }
