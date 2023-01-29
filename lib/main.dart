@@ -1,3 +1,4 @@
+import 'package:delimeals/screens/tabs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:delimeals/screens/categories_screen.dart';
 import 'package:delimeals/screens/category_meals_screen.dart';
@@ -32,10 +33,12 @@ class MyApp extends StatelessWidget {
                 fontSize: 20,
                 fontWeight: FontWeight.bold)),
       ),
-      home: const MyHomePage(title: 'DailyMeals'),
+
+      initialRoute: '/',
       routes: {
-        '/category-meals': (context) => CategoryMealsScreen(),
-        MealDetailScreen.routeName: (context) => MealDetailScreen(),
+        '/':(context) => const TabsScreen(),
+        '/category-meals': (context) => const CategoryMealsScreen(),
+        MealDetailScreen.routeName: (context) => const MealDetailScreen(),
       },
       //onGenerateRoute: (settings){
        // print(settings.arguments);
