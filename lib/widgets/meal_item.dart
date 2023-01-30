@@ -9,38 +9,39 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   String get complexityTest {
     switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
-        break;
       case Complexity.Challenging:
         return 'Challenging';
-        break;
       case Complexity.Hard:
         return 'Hard';
-        break;
       default:
         return 'Unknown';
     }
   }
   void selectMeal(BuildContext context)
   {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName,arguments:id );
+    Navigator.of(context).pushNamed(MealDetailScreen.routeName,arguments:id )
+        .then((mealId){
+          if (mealId!=null)
+            {
+              removeItem(mealId);
+            }
+    });
   }
 
   String get affordabilityTest{
     switch (affordability){
       case Affordability.Affordable:
         return 'Affordable';
-        break;
       case Affordability.Pricey:
         return 'Pricey';
-        break;
       case Affordability.Luxurious:
         return 'Affordable';
-        break;
     }
   }
 
@@ -51,6 +52,7 @@ class MealItem extends StatelessWidget {
       @required this.duration,
       @required this.complexity,
       @required this.affordability,
+      @required this.removeItem,
       {Key? key})
       : super(key: key);
 
@@ -67,7 +69,7 @@ class MealItem extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
                   ),
@@ -84,19 +86,19 @@ class MealItem extends StatelessWidget {
                   child: Container(
                     width: 220,
                     color: Colors.black54,
-                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
                     child: Text(
                       title,
                       softWrap: true,
                       overflow: TextOverflow.fade,
-                      style: TextStyle(fontSize: 20, color: Colors.white),
+                      style: const TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),
                 )
               ],
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
