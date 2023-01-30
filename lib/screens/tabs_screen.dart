@@ -22,7 +22,7 @@ class _TabsScreenState extends State<TabsScreen> {
         ),),
         body:  const TabBarView(children: [
           CategoriesScreen(),
-          FavouriteScreen()
+         // FavouriteScreen()
         ],),
         
       ),
